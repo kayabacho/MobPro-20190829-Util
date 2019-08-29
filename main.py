@@ -9,7 +9,7 @@ default_wait_time = "5"
 default_program_mode = "0"
 
 def timer_mode():
-    #数値が入力されたら値をクリップボード変更の待ち時間に設定する。空白はデフォルト値を入力。それ以外は再度入力させる。
+    #値が入力されたら値をクリップボード変更の待ち時間に設定する。空白はデフォルト値を入力。それ以外は再度入力させる。
     while True:
         wait_time = input("Please Enter the second to change the next clipboard.(default: {}sec) :".format(default_wait_time))
         if str.isdecimal(wait_time):
@@ -27,13 +27,14 @@ def timer_mode():
             #カウントダウンをする。前の秒数は\bとflush=Trueで消す。10秒以上（2桁の数値）を入力されると表示がおかしくなる
             print("\b",n,sep="",end="",flush=True)
             if n > 0:
-                os.system("beep -f 300 -l 50")
+                # os.system("beep -f 300 -l 50")
+                os.system("echo 1")
                 time.sleep(0.95)
         print("\b" + str(i+1) + "/" + str(len(clip_string)) + "クリップボードに \"" + clip_string[i] + "\" がコピーされました。",flush=True)
         pyperclip.copy(clip_string[i])
-        os.system("beep -f 300 -l 700")
+        # os.system("beep -f 300 -l 700")
+        os.system("echo 2")
         time.sleep(0.3)
-
 
 def return_mode():
     for i in range(len(clip_string)):
