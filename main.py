@@ -9,7 +9,7 @@ default_wait_time = "5"
 default_program_mode = "0"
 
 def timer_mode():
-    #数値が入力されたら値をクリップボード変更の待ち時間に設定する。空白はデフォルト値を入力。それ以外は再度入力させる。
+    #値が入力されたら値をクリップボード変更の待ち時間に設定する。空白はデフォルト値を入力。それ以外は再度入力させる。
     while True:
         wait_time = input("Please Enter the second to change the next clipboard.(default: {}sec) :".format(default_wait_time))
         if str.isdecimal(wait_time):
